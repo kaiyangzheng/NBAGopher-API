@@ -21,9 +21,16 @@ def get_all_teams_basic_latest():
         data = {}
         team_id = team.id
         basic_latest = TeamBasicLatestStats.query.filter_by(
-            team_id=team_id).first()
+            id=team_id).first()
+
+        if not basic_latest:
+            continue
+
         basic_rankings = TeamBasicLatestStatsRankings.query.filter_by(
-            team_id=team_id).first()
+            id=team_id).first()
+
+        if not basic_rankings:
+            continue
 
         data['basic'] = {}
         data['basic_rankings'] = {}
@@ -58,8 +65,15 @@ def get_all_teams_advanced_latest():
         team_id = team.id
         advanced_latest = TeamAdvancedLatestStats.query.filter_by(
             id=team_id).first()
+
+        if not advanced_latest:
+            continue
+
         advanced_rankings = TeamAdvancedStatsRankings.query.filter_by(
             id=team_id).first()
+
+        if not advanced_latest:
+            continue
 
         data['advanced'] = {}
         data['advanced_rankings'] = {}
