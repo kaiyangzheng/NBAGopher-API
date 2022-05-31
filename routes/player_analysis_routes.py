@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS, cross_origin
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
-from models import db, FeaturedPlayers, MVPCandidate, TrendingPlayer, FeaturedTrendingPlayers, FuturePerformance, AverageAdvancedLatestStatsTop30PPG, AverageBasicLatestStatsTop30PPG, PredictedDPOY, PredictedMIP, Predicted6MOY, PredictedROY
+from model.models import db, FeaturedPlayers, MVPCandidate, TrendingPlayer, FeaturedTrendingPlayers, FuturePerformance, AverageAdvancedLatestStatsTop30PPG, AverageBasicLatestStatsTop30PPG, PredictedDPOY, PredictedMIP, Predicted6MOY, PredictedROY
 
 
 player_analysis = Blueprint('player_analysis', __name__)

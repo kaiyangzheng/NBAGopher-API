@@ -2,7 +2,7 @@ from this import d
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS, cross_origin
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
-from models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo
+from model.models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo
 
 team_stats = Blueprint('team_stats', __name__)
 

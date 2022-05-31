@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS, cross_origin
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
-from models import db, PlayerInfoModel, PlayerBasicLatestModel, PlayerAdvancedLatestModel, PlayerBasicCareerModel, PlayerAdvancedCareerModel, PlayerBasicPrevModel, PlayerAdvancedPrevModel, PlayerBasicLatestPctlModel, PlayerAdvancedLatestPctlModel, FuturePerformance, PlayerBasicSeason, PlayerAdvancedSeason, PlayerBasicPrevPctlModel, PlayerAdvancedPrevPctlModel
+from model.models import db, PlayerInfoModel, PlayerBasicLatestModel, PlayerAdvancedLatestModel, PlayerBasicCareerModel, PlayerAdvancedCareerModel, PlayerBasicPrevModel, PlayerAdvancedPrevModel, PlayerBasicLatestPctlModel, PlayerAdvancedLatestPctlModel, FuturePerformance, PlayerBasicSeason, PlayerAdvancedSeason, PlayerBasicPrevPctlModel, PlayerAdvancedPrevPctlModel
 
 player_get_stats = Blueprint('player_get_stats', __name__)
 
