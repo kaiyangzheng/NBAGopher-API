@@ -2,14 +2,14 @@ from flask import Flask, jsonify, request
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
-from models import db
-from player_info_routes import player_info
-from player_basic_routes import player_basic
-from player_advanced_routes import player_advanced
-from player_analysis_routes import player_analysis
-from player_get_stats_routes import player_get_stats
-from team_info_routes import team_info
-from team_stats_routes import team_stats
+from routes.models import db
+from routes.player_info_routes import player_info
+from routes.player_basic_routes import player_basic
+from routes.player_advanced_routes import player_advanced
+from routes.player_analysis_routes import player_analysis
+from routes.player_get_stats_routes import player_get_stats
+from routes.team_info_routes import team_info
+from routes.team_stats_routes import team_stats
 
 app = Flask(__name__)
 cors = CORS(app)
