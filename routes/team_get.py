@@ -16,7 +16,7 @@ def get_all_teams_basic_latest():
     if not teams:
         abort(404, message="No teams found...")
 
-    basic_latest = {}
+    basic_latest_data = {}
     for team in teams:
         data = {}
         team_id = team.id
@@ -36,9 +36,9 @@ def get_all_teams_basic_latest():
             if key != '_sa_instance_state':
                 data['basic_rankings'][key] = value
 
-        basic_latest[team_id] = data
+        basic_latest_data[team_id] = data
 
-    return jsonify(basic_latest)
+    return jsonify(basic_latest_data)
 
 
 # get all team advanced latest stats
@@ -52,7 +52,7 @@ def get_all_teams_advanced_latest():
     if not teams:
         abort(404, message="No teams found...")
 
-    advanced_latest = {}
+    advanced_latest_data = {}
     for team in teams:
         data = {}
         team_id = team.id
@@ -72,8 +72,8 @@ def get_all_teams_advanced_latest():
             if key != '_sa_instance_state':
                 data['advanced_rankings'][key] = value
 
-        advanced_latest[team_id] = data
-    return jsonify(advanced_latest)
+        advanced_latest_data[team_id] = data
+    return jsonify(advanced_latest_data)
 
 
 # get team basic latest stats
