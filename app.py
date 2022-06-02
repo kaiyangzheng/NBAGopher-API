@@ -74,7 +74,7 @@ def register():
     hashed_password = generate_password_hash(
         data['password'], method='sha256')
     new_user = UserModel(public_id=str(uuid.uuid4()), name=name,
-                         password=hashed_password, admin=False)
+                         password=hashed_password, email=email, admin=False)
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'message': 'Registration successful!'})
