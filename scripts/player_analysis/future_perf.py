@@ -17,7 +17,7 @@ player_data = player_data.json()['league']['standard']
 
 
 def main_2():
-    regression = pickle.load(open("./models/future_perf_2.pickle", "rb"))
+    regression = pickle.load(open("./ML/classifiers/future_perf.pickle", "rb"))
     for player in player_data:
         player_id = player['personId']
         PLAYER_STATS_API = f"{BASE}player/compiled/{player_id}"

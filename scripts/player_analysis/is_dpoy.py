@@ -17,7 +17,8 @@ player_data = player_data.json()['league']['standard']
 
 
 def main():
-    classifier = pickle.load(open('./models/DPOY_classifier.pkl', 'rb'))
+    classifier = pickle.load(
+        open('./ML/classifiers/DPOY_classifier.pkl', 'rb'))
     predicted_dpoys = []
     for player in player_data:
         if player['isActive']:

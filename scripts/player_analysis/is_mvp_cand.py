@@ -26,7 +26,7 @@ def get_team_win_perc(team_id):
 
 
 def main():
-    classifier = pickle.load(open('./models/model.pkl', 'rb'))
+    classifier = pickle.load(open('./ML/classifiers/mvp_model.pkl', 'rb'))
     for player in player_data:
         if player['isActive']:
             player_id = player['personId']
