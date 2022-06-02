@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request, make_response
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
-from model.models import db, User
+from model.models import db, UserModel
 from routes.player_info import player_info
 from routes.player_basic import player_basic
 from routes.player_advanced import player_advanced
@@ -45,7 +45,7 @@ def token_required(f):
         try:
             data = jwt.decode(
                 token, app.config['SECRET_KEY'], algorithms=['HS256'])
-            current_user = User.query.filter_by(
+            current_user = UserModel.query.filter_by(
                 public_id=data['public_id']).first()
         except:
             return jsonify({'message': 'Token is invalid!'}), 401
@@ -65,16 +65,16 @@ def register():
         return jsonify({'message': 'Name too short! Must be at least 3 characters long.'})
     if not name.isalnum() or " " in name:
         return jsonify({'error': "Name should be alphanumeric and include no spaces"}), 400
-    if User.query.filter_by(name=name).first() is not None:
+    if UserModel.query.filter_by(name=name).first() is not None:
         return jsonify({'error': "Name is taken"}), 409
-    if User.query.filter_by(email=email).first() is not None:
+    if UserModel.query.filter_by(email=email).first() is not None:
         return jsonify({'error': "Email is taken"}), 409
     if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
         return jsonify({'error': "Invalid email"}), 400
     hashed_password = generate_password_hash(
         data['password'], method='sha256')
-    new_user = User(public_id=str(uuid.uuid4()), name=name,
-                    password=hashed_password, admin=False)
+    new_user = UserModel(public_id=str(uuid.uuid4()), name=name,
+                         password=hashed_password, admin=False)
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'message': 'Registration successful!'})
@@ -85,7 +85,7 @@ def login():
     auth = request.authorization
     if not auth or not auth.username or not auth.password:
         return make_response('Could not verify', 401, {'WWW-Authenticate': 'Basic realm="Login required!"'})
-    user = User.query.filter_by(name=auth.username).first()
+    user = UserModel.query.filter_by(name=auth.username).first()
     if not user:
         return make_response('Could not verify', 401, {'WWW-Authenticate': 'Basic realm="Login required!"'})
     if check_password_hash(user.password, auth.password):

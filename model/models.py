@@ -7,7 +7,7 @@ db = SQLAlchemy()
 ##############################################################################
 
 
-class User(db.Model):
+class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     public_id = db.Column(db.String, unique=True)
     name = db.Column(db.String, nullable=False)
