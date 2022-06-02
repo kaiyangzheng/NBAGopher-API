@@ -471,9 +471,9 @@ class TeamAdvancedStatsRankings(db.Model):
     DRB_pctg = db.Column(db.String(100), nullable=False)
     opp_FT_per_FGA = db.Column(db.String(100), nullable=False)
 
-    ##############################################################################################
-    # Analysis Models
-    ##############################################################################################
+##############################################################################################
+# Player Analysis Models
+##############################################################################################
 
     # featured players db
 
@@ -594,3 +594,14 @@ class Predicted6MOY(db.Model):
 
 class PredictedROY(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+
+##############################################################################################
+# Team Analysis Models
+##############################################################################################
+
+
+class FeaturedTeams(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    featured_offense_id = db.Column(db.String(100))
+    featured_defense_id = db.Column(db.String(100))
+    featured_overall_id = db.Column(db.String(100))
