@@ -21,7 +21,7 @@ import datetime
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://snbhmwkhirenmk:4322db215c2e5a3817b871e245bce4c8d8ef0b6b4af179daf54718e938ff34d7@ec2-52-3-60-53.compute-1.amazonaws.com:5432/d96kme5om0k14h'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cbnmbfbqcrtbbc:c93be9e4a9b3d741a1dc7df1876707b0b128d1eb496969ce52fcb23cebd92717@ec2-44-194-92-192.compute-1.amazonaws.com:5432/d10b6p0fe6pkbd'
 db.init_app(app)
 
 app.register_blueprint(player_info)
