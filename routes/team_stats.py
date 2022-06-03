@@ -136,7 +136,7 @@ def post_featured_teams():
 @team_stats.route('/team/featured', methods=['GET'])
 @cross_origin()
 def get_featured_teams():
-    featured_teams = featured_teams.query.all()
+    featured_teams = FeaturedTeams.query.all()
     featured_teams = featured_teams[-1]
     featured_teams_dict = {}
     featured_teams_dict['featured_offense_id'] = featured_teams.featured_offense_id
