@@ -34,6 +34,10 @@ def get_team_gp(team_id):
     soup = BeautifulSoup(html_text, 'lxml')
     table = soup.find('table', {'id': 'per_game-team'})
     df = pd.read_html(str(table))[0]
+    teams_list = df['Team'].tolist()
+    for i in range(len(teams_list)):
+        teams_list[i] = teams_list[i].replace('*', '')
+    df['Team'] = teams_list
     return df[df['Team'] == team_full_name]['G'].values[0]
 
 

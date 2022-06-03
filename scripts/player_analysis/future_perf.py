@@ -52,7 +52,7 @@ def main_2():
 
 
 def main():
-    regression = pickle.load(open('./models/future_perf.pickle', 'rb'))
+    regression = pickle.load(open('./ML/classifiers/future_perf.pickle', 'rb'))
     for player in player_data:
         player_id = player['personId']
         PLAYER_STATS_API = f"{BASE}player/compiled/{player_id}"
@@ -84,4 +84,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main_2()

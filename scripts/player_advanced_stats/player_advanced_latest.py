@@ -91,7 +91,7 @@ def advanced_stats():
     return advanced_stats_table
 
 
-def main():
+def get_stats(advanced_stats_table):
     for player in player_data:
         if (player['isActive']):
             player_id = player['personId']
@@ -122,6 +122,7 @@ def main():
                     'VORP': player_advanced_stats['VORP'].tolist()[0],
                 })
             except:
+                print('!')
                 data = json.dumps({
                     'TS_pctg': '0',
                     'TPAr': '0',
@@ -151,6 +152,10 @@ def main():
             print(response.text)
 
 
-if __name__ == "__main__":
+def main():
     advanced_stats_table = advanced_stats()
+    get_stats(advanced_stats_table)
+
+
+if __name__ == '__main__':
     main()

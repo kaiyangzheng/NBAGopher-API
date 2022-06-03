@@ -128,3 +128,19 @@ def post_featured_teams():
     db.session.add(featured_teams)
     db.session.commit()
     return jsonify({'message': 'Featured teams posted'})
+
+
+# get featureed teams
+
+
+@team_stats.route('/team/featured', methods=['GET'])
+@cross_origin()
+def get_featured_teams():
+    featured_teams = featured_teams.query.all()
+    featured_teams = featured_teams[-1]
+    featured_teams_dict = {}
+    featured_teams_dict['featured_offense_id'] = featured_teams.featured_offense_id
+    featured_teams_dict['featured_defense_id'] = featured_teams.featured_defense_id
+    featured_teams_dict['featured_overall_id'] = featured_teams.featured_overall_id
+
+    return jsonify(featured_teams_dict)

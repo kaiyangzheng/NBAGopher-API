@@ -39,10 +39,8 @@ def get_team_gp(team_id):
 def offense_value(player_basic_by_season, player_advanced_by_season):
     basic_latest_year = player_basic_by_season[0]
     basic_prev_year = player_basic_by_season[1]
-    basic_prev_2_year = player_basic_by_season[2]
     advanced_latest_year = player_advanced_by_season[0]
     advanced_prev_year = player_advanced_by_season[1]
-    advanced_prev_2_year = player_advanced_by_season[2]
 
     offense_basic_stats = ['ppg', 'apg', 'fgp', 'ftp', 'tpp']
     offense_basic_weights = {'ppg': 100, 'apg': 80,
@@ -65,17 +63,8 @@ def offense_value(player_basic_by_season, player_advanced_by_season):
 
     basic_prev_list = np.array(basic_prev_list).astype(float)
 
-    basic_prev_2_list = []
-    for stat in offense_basic_stats:
-        basic_prev_2_list.append(
-            float(basic_prev_2_year[stat]) * offense_basic_weights[stat])
-
-    basic_prev_2_list = np.array(basic_prev_2_list).astype(float)
-
     basic_diff1 = np.mean(np.array(basic_latest_list) -
                           np.array(basic_prev_list))
-    basic_diff2 = np.mean(np.array(basic_prev_list) -
-                          np.array(basic_prev_2_list))
 
     advanced_latest_list = []
     for stat in offense_advanced_stats:
@@ -91,19 +80,10 @@ def offense_value(player_basic_by_season, player_advanced_by_season):
 
     advanced_prev_list = np.array(advanced_prev_list).astype(float)
 
-    advanced_prev_2_list = []
-    for stat in offense_advanced_stats:
-        advanced_prev_2_list.append(
-            float(advanced_prev_2_year[stat]) * offense_advanced_weights[stat])
-
-    advanced_prev_2_list = np.array(advanced_prev_2_list).astype(float)
-
     advanced_diff1 = np.mean(np.array(advanced_latest_list) -
                              np.array(advanced_prev_list))
-    advanced_diff2 = np.mean(np.array(advanced_prev_list) -
-                             np.array(advanced_prev_2_list))
 
-    value = basic_diff1 + advanced_diff1 + basic_diff2 + advanced_diff2
+    value = basic_diff1 + advanced_diff1
     return value
 
 
@@ -135,17 +115,8 @@ def defense_value(player_basic_by_season, player_advanced_by_season):
 
     basic_prev_list = np.array(basic_prev_list).astype(float)
 
-    basic_prev_2_list = []
-    for stat in defense_basic_stats:
-        basic_prev_2_list.append(
-            float(basic_prev_2_year[stat]) * defense_basic_weights[stat])
-
-    basic_prev_2_list = np.array(basic_prev_2_list).astype(float)
-
     basic_diff1 = np.mean(np.array(basic_latest_list) -
                           np.array(basic_prev_list))
-    basic_diff2 = np.mean(np.array(basic_prev_list) -
-                          np.array(basic_prev_2_list))
 
     advanced_latest_list = []
     for stat in defense_advanced_stats:
@@ -161,19 +132,12 @@ def defense_value(player_basic_by_season, player_advanced_by_season):
 
     advanced_prev_list = np.array(advanced_prev_list).astype(float)
 
-    advanced_prev_2_list = []
-    for stat in defense_advanced_stats:
-        advanced_prev_2_list.append(
-            float(advanced_prev_2_year[stat]) * defense_advanced_weights[stat])
-
     advanced_prev_2_list = np.array(advanced_prev_2_list).astype(float)
 
     advanced_diff1 = np.mean(np.array(advanced_latest_list) -
                              np.array(advanced_prev_list))
-    advanced_diff2 = np.mean(np.array(advanced_prev_list) -
-                             np.array(advanced_prev_2_list))
 
-    value = basic_diff1 + advanced_diff1 + basic_diff2 + advanced_diff2
+    value = basic_diff1 + advanced_diff1
     return value
 
 

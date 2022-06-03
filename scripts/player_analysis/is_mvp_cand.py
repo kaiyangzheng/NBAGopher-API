@@ -53,9 +53,9 @@ def main():
             prediction = np.uint32(
                 (classifier.predict([classifier_stats])[0])).item()
             response = requests.request(
-                'DELETE', BASE_TEST + f'mvp_candidate/{player_id}')
+                'DELETE', BASE + f'mvp_candidate/{player_id}')
             headers = {'Content-Type': 'application/json'}
-            response = requests.request('POST', BASE_TEST +
+            response = requests.request('POST', BASE +
                                         f'/mvp_candidate/{player_id}', data=json.dumps({'id': player_id, 'is_mvp_cand': prediction}), headers=headers)
             print(response.text)
 
