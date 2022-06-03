@@ -124,7 +124,7 @@ def post_team_stats_advanced_rankings(team_id):
 def post_featured_teams():
     data = request.get_json()
     featured_teams = FeaturedTeams(
-        featured_offense_id=data['featured_offense'], featured_defense_id=data['featured_defense'], featured_overall_id=data['featured_overall'])
+        featured_offense_id=data['featured_offense_id'], featured_defense_id=data['featured_defense_id'], featured_overall_id=data['featured_overall_id'])
     db.session.add(featured_teams)
     db.session.commit()
     return jsonify({'message': 'Featured teams posted'})

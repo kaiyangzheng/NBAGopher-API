@@ -56,7 +56,7 @@ def main():
     }
 
     headers = {'Content-Type': 'application/json'}
-    response = requests.post(BASE + "featured_teams",
+    response = requests.post(BASE + "team/featured",
                              data=json.dumps(data), headers=headers)
     print(response.text)
 
