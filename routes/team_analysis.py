@@ -8,7 +8,7 @@ team_analysis = Blueprint('team_analysis', __name__)
 # post featured teams
 
 
-@team_analysis('/featured_teams', method=['POST'])
+@team_analysis.route('/featured_teams', method=['POST'])
 @cross_origin()
 def post_featured_teams():
     data = request.get_json()
@@ -22,7 +22,7 @@ def post_featured_teams():
 # get featured teams
 
 
-@team_analysis('/featured_teams', method=['GET'])
+@team_analysis.route('/featured_teams', method=['GET'])
 @cross_origin()
 def get_featured_teams():
     featured_teams = FeaturedTeams.query.all()
