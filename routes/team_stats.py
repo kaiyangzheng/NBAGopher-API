@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS, cross_origin
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
-from model.models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo
+from model.models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo, FeaturedTeams
 
 team_stats = Blueprint('team_stats', __name__)
 
@@ -115,3 +115,16 @@ def post_team_stats_advanced_rankings(team_id):
     db.session.add(team)
     db.session.commit()
     return jsonify({'message': 'Team stats advanced rankings posted'})
+
+# post featured teams
+
+
+@team_stats.route('/team/featured', methods=['POST'])
+@cross_origin()
+def post_featured_teams():
+    data = request.get_json()
+    featured_teams = FeaturedTeams(
+        featured_offense_id=data['featured_offense'], featured_defense_id=data['featured_defense'], featured_overall_id=data['featured_overall'])
+    db.session.add(featured_teams)
+    db.session.commit()
+    return jsonify({'message': 'Featured teams posted'})
