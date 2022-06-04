@@ -98,8 +98,13 @@ def get_all_team_standings():
         return jsonify({'message': 'No standings found'})
     standings = {}
     for team in team_standings:
+        team_info = TeamInfo.query.filter_by(id=team.id).first()
         standings[team.id] = {'wins': team.wins, 'losses': team.losses, 'win_pctg': team.win_pctg, 'loss_pctg': team.loss_pctg, 'games_back': team.games_back, 'conf_rank': team.conf_rank, 'home_wins': team.home_wins,
                               'home_losses': team.home_losses, 'away_wins': team.away_wins, 'away_losses': team.away_losses, 'last_ten_wins': team.last_ten_wins, 'last_ten_losses': team.last_ten_losses, 'streak': team.streak}
+        standings[team.id]['info'] = {}
+        for key in team_info.__dict__:
+            if (key != '_sa_instance_state'):
+                standings[team.id]['info'][key] = team_info.__dict__[key]
     return jsonify(standings)
 
 
