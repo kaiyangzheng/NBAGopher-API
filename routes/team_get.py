@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_cors import CORS, cross_origin
 from flask_restful import Api, Resource, marshal, reqparse, abort, fields, marshal_with
-from model.models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo
+from model.models import db, TeamBasicLatestStats, TeamBasicLatestStatsRankings, TeamAdvancedLatestStats, TeamAdvancedStatsRankings, TeamInfo, TeamStandings
 
 team_get = Blueprint('team_get', __name__)
 
@@ -189,6 +189,8 @@ def get_team_compiled_stats(team_id):
     advanced_rankings = TeamAdvancedStatsRankings.query.filter_by(
         id=team_id).first()
 
+    standings = TeamStandings.query.filter_by(id=team_id).first()
+
     team_data = {}
     team_data['info'] = {}
 
@@ -219,5 +221,11 @@ def get_team_compiled_stats(team_id):
     for key in advanced_rankings.__dict__:
         if key != '_sa_instance_state':
             team_data['advanced_rankings'][key] = advanced_rankings.__dict__[key]
+
+    team_data['standings'] = {}
+
+    for key in standings.__dict__:
+        if key != '_sa_instance_state':
+            team_data['standings'][key] = standings.__dict__[key]
 
     return jsonify(team_data)
