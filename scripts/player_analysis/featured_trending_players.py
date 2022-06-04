@@ -36,11 +36,7 @@ def get_team_gp(team_id):
     return df[df['Team'] == team_full_name]['G'].values[0]
 
 
-def offense_value(player_basic_by_season, player_advanced_by_season):
-    basic_latest_year = player_basic_by_season[0]
-    basic_prev_year = player_basic_by_season[1]
-    advanced_latest_year = player_advanced_by_season[0]
-    advanced_prev_year = player_advanced_by_season[1]
+def offense_value(basic_latest_year, basic_prev_year, advanced_latest_year, advanced_prev_year):
 
     offense_basic_stats = ['ppg', 'apg', 'fgp', 'ftp', 'tpp']
     offense_basic_weights = {'ppg': 100, 'apg': 80,
@@ -87,14 +83,7 @@ def offense_value(player_basic_by_season, player_advanced_by_season):
     return value
 
 
-def defense_value(player_basic_by_season, player_advanced_by_season):
-    basic_latest_year = player_basic_by_season[0]
-    basic_prev_year = player_basic_by_season[1]
-    basic_prev_2_year = player_basic_by_season[2]
-    advanced_latest_year = player_advanced_by_season[0]
-    advanced_prev_year = player_advanced_by_season[1]
-    advanced_prev_2_year = player_advanced_by_season[2]
-
+def defense_value(basic_latest_year, basic_prev_year, advanced_latest_year, advanced_prev_year):
     defense_basic_stats = ['rpg', 'bpg', 'spg']
     defense_basic_weights = {'rpg': 90, 'bpg': 80, 'spg': 80}
     defense_advanced_stats = ['DRB_pctg', 'STL_pctg', 'BLK_pctg', 'DBPM']
@@ -132,8 +121,6 @@ def defense_value(player_basic_by_season, player_advanced_by_season):
 
     advanced_prev_list = np.array(advanced_prev_list).astype(float)
 
-    advanced_prev_2_list = np.array(advanced_prev_2_list).astype(float)
-
     advanced_diff1 = np.mean(np.array(advanced_latest_list) -
                              np.array(advanced_prev_list))
 
@@ -151,25 +138,33 @@ def main():
             player_id = player['personId']
             team_id = player['teamId']
             try:
-                player_stats_by_season = requests.request(
-                    'GET', f"{BASE}player/compiled/by_season/{player_id}")
-                player_stats_by_season = player_stats_by_season.json()
-                player_basic_by_season = player_stats_by_season['player_basic_stats']
+                player_stats = requests.get(
+                    BASE + f'player/compiled/{player_id}')
+                player_stats = player_stats.json()
+                player_basic_latest = player_stats['player_basic_latest']
+                player_basic_prev = player_stats['player_basic_prev']
+                player_advanced_latest = player_stats['player_advanced_latest']
+                player_advanced_prev = player_stats['player_advanced_prev']
             except:
                 continue
             try:
-                if (float(player_basic_by_season[0]['games_played'])/get_team_gp(team_id) < 0.7 or len(player_basic_by_season) < 3):
+                if (float(player_basic_latest['games_played'])/get_team_gp(team_id) < 0.7):
                     continue
             except:
                 continue
-            player_advanced_by_season = player_stats_by_season['player_advanced_stats']
-            offense_val = offense_value(
-                player_basic_by_season, player_advanced_by_season)
+            try:
+                offense_val = offense_value(
+                    player_basic_latest, player_basic_prev, player_advanced_latest, player_advanced_prev)
+            except:
+                offense_val = 0
             print(offense_val)
             offense_val_list.append(offense_val)
             offense_player_id_list.append(player_id)
-            defense_val = defense_value(
-                player_basic_by_season, player_advanced_by_season)
+            try:
+                defense_val = defense_value(
+                    player_basic_latest, player_basic_prev, player_advanced_latest, player_advanced_prev)
+            except:
+                defense_val = 0
             print(defense_val)
             defense_val_list.append(defense_val)
             defense_player_id_list.append(player_id)
