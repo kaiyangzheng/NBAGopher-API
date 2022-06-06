@@ -472,10 +472,134 @@ class TeamAdvancedStatsRankings(db.Model):
     opp_FT_per_FGA = db.Column(db.String(100), nullable=False)
 
 ##############################################################################################
+# Team Playoff Bracket Models
+##############################################################################################
+
+
+class WestFirstRound1(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestFirstRound2(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestFirstRound3(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestFirstRound4(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastFirstRound1(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastFirstRound2(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastFirstRound3(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastFirstRound4(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestSemiFinal1(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestSemiFinal2(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastSemiFinal1(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastSemiFinal2(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class WestConferenceFinal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class EastConferenceFinal(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+
+class NBAFinals(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    team1_id = db.Column(db.String, nullable=False)
+    team2_id = db.Column(db.String, nullable=False)
+    team1_wins = db.Column(db.String, nullable=False)
+    team2_wins = db.COlumn(db.String, nullable=False)
+
+##############################################################################################
 # Player Analysis Models
 ##############################################################################################
 
-    # featured players db
+# featured players db
 
 
 class FeaturedPlayers(db.Model):
