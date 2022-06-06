@@ -481,7 +481,7 @@ class WestFirstRound1(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestFirstRound2(db.Model):
@@ -489,7 +489,7 @@ class WestFirstRound2(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestFirstRound3(db.Model):
@@ -497,7 +497,7 @@ class WestFirstRound3(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestFirstRound4(db.Model):
@@ -505,7 +505,7 @@ class WestFirstRound4(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastFirstRound1(db.Model):
@@ -513,7 +513,7 @@ class EastFirstRound1(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastFirstRound2(db.Model):
@@ -521,7 +521,7 @@ class EastFirstRound2(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastFirstRound3(db.Model):
@@ -529,7 +529,7 @@ class EastFirstRound3(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastFirstRound4(db.Model):
@@ -537,7 +537,7 @@ class EastFirstRound4(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestSemiFinal1(db.Model):
@@ -545,7 +545,7 @@ class WestSemiFinal1(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestSemiFinal2(db.Model):
@@ -553,7 +553,7 @@ class WestSemiFinal2(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastSemiFinal1(db.Model):
@@ -561,7 +561,7 @@ class EastSemiFinal1(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastSemiFinal2(db.Model):
@@ -569,7 +569,7 @@ class EastSemiFinal2(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class WestConferenceFinal(db.Model):
@@ -577,7 +577,7 @@ class WestConferenceFinal(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class EastConferenceFinal(db.Model):
@@ -585,7 +585,7 @@ class EastConferenceFinal(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 
 class NBAFinals(db.Model):
@@ -593,7 +593,7 @@ class NBAFinals(db.Model):
     team1_id = db.Column(db.String, nullable=False)
     team2_id = db.Column(db.String, nullable=False)
     team1_wins = db.Column(db.String, nullable=False)
-    team2_wins = db.COlumn(db.String, nullable=False)
+    team2_wins = db.Column(db.String, nullable=False)
 
 ##############################################################################################
 # Player Analysis Models
