@@ -105,6 +105,8 @@ def main():
     data['east_final'] = east_final
     data['nba_final'] = finals
 
+    print(data['east_first'])
+
     data = json.dumps(data)
     headers = {'Content-Type': 'application/json'}
     response = requests.post(

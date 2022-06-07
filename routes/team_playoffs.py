@@ -58,6 +58,7 @@ def post_east_first_round():
     db.session.add(east_first_round_2_obj)
     db.session.add(east_first_round_3_obj)
     db.session.add(east_first_round_4_obj)
+    db.session.commit()
     return jsonify({'message': 'East First Round Info added'})
 
 
@@ -193,7 +194,7 @@ def get_playoffs_info():
         if key != '_sa_instance_state':
             data['west_first_round']['series_3'][key] = value
 
-    data['west_first_round']['series_4'] = {}
+    data['east_first_round']['series_1'] = {}
 
     west_first_round4 = WestFirstRound4.query.all()
     west_first_round4 = west_first_round4[-1]
