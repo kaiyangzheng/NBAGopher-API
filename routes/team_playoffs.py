@@ -12,10 +12,10 @@ team_playoffs = Blueprint('team_playoffs', __name__)
 @cross_origin()
 def post_west_first_round():
     data = request.get_json()
-    west_first_round_1 = data['series_1']
-    west_first_round_2 = data['series_2']
-    west_first_round_3 = data['series_3']
-    west_first_round_4 = data['series_4']
+    west_first_round_1 = data[0]
+    west_first_round_2 = data[1]
+    west_first_round_3 = data[2]
+    west_first_round_4 = data[3]
 
     west_first_round_1_obj = WestFirstRound1(team1_id=west_first_round_1['team1_id'], team2_id=west_first_round_1[
                                              'team2_id'], team1_wins=west_first_round_1['team1_wins'], team2_wins=west_first_round_1['team2_wins'])
@@ -40,10 +40,10 @@ def post_west_first_round():
 @cross_origin()
 def post_east_first_round():
     data = request.get_json()
-    east_first_round_1 = data['series_1']
-    east_first_round_2 = data['series_2']
-    east_first_round_3 = data['series_3']
-    east_first_round_4 = data['series_4']
+    east_first_round_1 = data[0]
+    east_first_round_2 = data[1]
+    east_first_round_3 = data[2]
+    east_first_round_4 = data[3]
 
     east_first_round_1_obj = EastFirstRound1(team1_id=east_first_round_1['team1_id'], team2_id=east_first_round_1[
         'team2_id'], team1_wins=east_first_round_1['team1_wins'], team2_wins=east_first_round_1['team2_wins'])
@@ -67,8 +67,8 @@ def post_east_first_round():
 @cross_origin()
 def post_west_semi_final():
     data = request.get_json()
-    west_semi_final_1 = data['series_1']
-    west_semi_final_2 = data['series_2']
+    west_semi_final_1 = data[0]
+    west_semi_final_2 = data[1]
 
     west_semi_final_1_obj = WestSemiFinal1(team1_id=west_semi_final_1['team1_id'], team2_id=west_semi_final_1[
         'team2_id'], team1_wins=west_semi_final_1['team1_wins'], team2_wins=west_semi_final_1['team2_wins'])
@@ -88,8 +88,8 @@ def post_west_semi_final():
 @cross_origin()
 def post_east_semi_final():
     data = request.get_json()
-    east_semi_final_1 = data['series_1']
-    east_semi_final_2 = data['series_2']
+    east_semi_final_1 = data[0]
+    east_semi_final_2 = data[1]
 
     east_semi_final_1_obj = EastSemiFinal1(team1_id=east_semi_final_1['team1_id'], team2_id=east_semi_final_1[
         'team2_id'], team1_wins=east_semi_final_1['team1_wins'], team2_wins=east_semi_final_1['team2_wins'])
@@ -109,7 +109,7 @@ def post_east_semi_final():
 @cross_origin()
 def post_west_final():
     data = request.get_json()
-    west_final = data['series']
+    west_final = data[0]
 
     west_final_obj = WestConferenceFinal(team1_id=west_final['team1_id'], team2_id=west_final['team2_id'],
                                          team1_wins=west_final['team1_wins'], team2_wins=west_final['team2_wins'])
@@ -125,7 +125,7 @@ def post_west_final():
 @cross_origin()
 def post_east_final():
     data = request.get_json()
-    east_final = data['series']
+    east_final = data[0]
 
     east_final_obj = EastConferenceFinal(team1_id=east_final['team1_id'], team2_id=east_final['team2_id'],
                                          team1_wins=east_final['team1_wins'], team2_wins=east_final['team2_wins'])
@@ -141,7 +141,7 @@ def post_east_final():
 @cross_origin()
 def post_nba_final():
     data = request.get_json()
-    nba_final = data['series']
+    nba_final = data[0]
 
     nba_final_obj = NBAFinals(team1_id=nba_final['team1_id'], team2_id=nba_final['team2_id'],
                               team1_wins=nba_final['team1_wins'], team2_wins=nba_final['team2_wins'])
