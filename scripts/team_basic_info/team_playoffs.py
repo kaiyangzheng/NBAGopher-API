@@ -106,6 +106,28 @@ def main():
     data['nba_final'] = finals
 
     data = json.dumps(data)
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(
+        BASE + 'team/playoffs/west/first', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/east/first', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/west/semi', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/east/semi', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/west/final', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/east/final', data=data, headers=headers)
+    print(response.text)
+    response = requests.post(
+        BASE + 'team/playoffs/nba/final', data=data, headers=headers)
+    print(response.text)
 
 
 if __name__ == "__main__":

@@ -11,6 +11,7 @@ from routes.player_get import player_get_stats
 from routes.team_info import team_info
 from routes.team_stats import team_stats
 from routes.team_get import team_get
+from routes.team_playoffs import team_playoffs
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
@@ -32,6 +33,7 @@ app.register_blueprint(player_get_stats)
 app.register_blueprint(team_info)
 app.register_blueprint(team_stats)
 app.register_blueprint(team_get)
+app.register_blueprint(team_playoffs)
 
 
 def token_required(f):
