@@ -193,6 +193,8 @@ def get_playoffs_info():
         if key != '_sa_instance_state':
             data['west_first_round']['series_3'][key] = value
 
+    data['west_first_round']['series_4'] = {}
+
     west_first_round4 = WestFirstRound4.query.all()
     west_first_round4 = west_first_round4[-1]
 
