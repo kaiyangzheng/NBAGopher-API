@@ -162,7 +162,7 @@ def get_playoffs_info():
     data['west_first_round'] = {}
     data['east_first_round'] = {}
     data['west_semis'] = {}
-    data['west_semis'] = {}
+    data['east_semis'] = {}
     data['west_finals'] = {}
     data['east_finals'] = {}
     data['nba_finals'] = {}
@@ -229,6 +229,8 @@ def get_playoffs_info():
     for key, value in east_first_round3.__dict__.items():
         if key != '_sa_instance_state':
             data['east_first_round']['series_3'][key] = value
+
+    data['east_first_round']['series_4'] = {}
 
     east_first_round4 = EastFirstRound4.query.all()
     east_first_round4 = east_first_round4[-1]
